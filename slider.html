@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider with Animation</title>
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <div class="nav navbar-expand-lg">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-2 col-md-2 logo mt-2">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="logo">
+          </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="col-lg-10 row">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav col-10 d-flex m-lg-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="aboutUs.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AllServes.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="col-lg-1 col-md-11 col-sm-11">
+              <button class="btn btn-outline-success" type="button" id="rtlButton">En</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="images/slide (1).png" alt="Slide 1">
+        <div class="header_text">
+          <h1>Event Organize</h1>
+          <p>We do All Event with Fantastic to Organize</p>
+          <button class="btn">
+            <i class="fa-solid fa-plus"></i> Learn More
+          </button>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/slide (3).png" alt="Slide 2">
+        <div class="header_text">
+          <h1>Event Organize</h1>
+          <p>We do All Event with Fantastic to Organize</p>
+          <a href="https://www.facebook.com/YourFacebookPage" class="btn">
+            <i class="fa-solid fa-plus"></i> Learn More
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/slide (2).png" alt="Slide 3">
+        <div class="header_text">
+          <h1>Event Organize</h1>
+          <p>We do All Event with Fantastic to Organize</p>
+          <a href="" class="btn">
+            <i class="fa-solid fa-plus"></i> Learn More
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/slide (4).png" alt="Slide 4">
+        <div class="header_text">
+          <h1>Event Organize</h1>
+          <p>We do All Event with Fantastic to Organize</p>
+          <a href="" class="btn">
+            <i class="fa-solid fa-plus"></i> Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    new WOW().init();
+  </script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      loop: true,
+            autoplay: {
+        delay: 3500, // Autoplay delay in milliseconds
+        disableOnInteraction: false, // Autoplay will not be disabled after user interactions (swipes, clicks)
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+  <script>
+    let isRTL = false;
+    const button = document.getElementById("rtlButton");
+    const nav = document.querySelector('.nav');
+    const header = document.querySelectorAll('.header_text');
+
+    button.addEventListener("click", function () {
+      if (isRTL) {
+        nav.classList.remove("rtl");
+        header.forEach(item => item.classList.remove("rtl"));
+        nav.style.direction = "ltr";
+        header.forEach(item => item.style.direction = "ltr");
+        button.textContent = "En";
+      } else {
+        nav.classList.add("rtl");
+        header.forEach(item => item.classList.add("rtl"));
+        nav.style.direction = "rtl";
+        header.forEach(item => item.style.direction = "rtl");
+        button.textContent = "ع";
+      }
+      isRTL = !isRTL;
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider with Animation</title>
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* Add any custom styles here */
+    .slider,
+    .item {
+      direction: ltr !important; /* Ensure slider always remains LTR */
+    }
+    body.home{
+    scrollbar-width:auto !important; 
+    height: 130vh;
+    overflow-y: scroll;
+}
+  </style>
+</head>
+
+<body class=" home">
+  <div class="slideshow">
+    <div class="nav navbar-expand-lg">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-2 logo mt-2">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" alt="logo">
+            </a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="col-lg-10 row">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav col-10 d-flex justify-content-center m-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="aboutUs.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/AllServes.html">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/contact.html">Contact</a>
+                </li>
+              </ul>
+              <div class="col-1">
+                <button class="btn btn-outline-success" type="button" id="rtlButton">En</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="item">
+        <img src="images/slide (1).png" alt="Slide 1">
+        <div class="header_text ">
+          <h1>
+            Event Organize
+          </h1>
+          <p>
+            We do All Event with Fantastic to Organize
+          </p>
+          <button class="btn ">
+            <i class="fa-solid fa-plus"></i>
+            Learn More
+          </button>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/slide (3).png" alt="Slide 2">
+        <div class="header_text ">
+          <h1>
+            Event Organize
+          </h1>
+          <p>
+            We do All Event with Fantastic to Organize
+          </p>
+          <a href="https://www.facebook.com/YourFacebookPage" class="btn">
+            <i class="fa-solid fa-plus"></i>
+            Learn More
+          </a>
+          
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/slide (2).png" alt="Slide 3">
+        <div class="header_text ">
+          <h1>
+            Event Organize
+          </h1>
+          <p>
+            We do All Event with Fantastic to Organize
+          </p>
+          <a href="" class="btn">
+            <i class="fa-solid fa-plus"></i>
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/slide (4).png" alt="Slide 4">
+        <div class="header_text ">
+          <h1>
+            Event Organize
+          </h1>
+          <p>
+            We do All Event with Fantastic to Organize
+          </p>
+          <a href="" class="btn ">
+            <i class="fa-solid fa-plus"></i>
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script>
+    $(document).ready(function () {
+        $('.slider').slick({
+            draggable: true,
+            arrows: false,
+            dots: true,
+            fade: true,
+            speed: 900,
+            infinite: true,
+            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+            touchThreshold: 100,
+            loop: true,
+            autoplay: {
+                delay: 500,
+            },
+        });
+        
+        // Change slide on up and down arrow button click
+        $('.fa-chevron-up').click(function(){
+            $('.slider').slick('slickPrev');
+        });
+        
+        $('.fa-chevron-down').click(function(){
+            $('.slider').slick('slickNext');
+        });
+    });
+</script>
+
+<script>
+    let isRTL = false;
+    const button = document.getElementById("rtlButton");
+    const nav = document.querySelector('.nav');
+    const header = document.querySelector('.header_text');
+
+    button.addEventListener("click", function () {
+        if (isRTL) {
+            nav.style.direction = "ltr";
+            header.style.direction = "ltr";
+            button.textContent = "En";
+        } else {
+            nav.style.direction = "rtl";
+            header.style.direction = "rtl";
+            button.textContent = "ع";
+        }
+        isRTL = !isRTL;
+    });
+</script>
+</body>
+
+</html>
